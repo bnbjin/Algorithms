@@ -13,8 +13,11 @@ int main()
     }
     printf("\n");
 
-    //quick_sort
-    quick_sort(array, 0, sizeof(array)/sizeof(int) -1);
+    // quick_sort
+    //quick_sort(array, 0, sizeof(array)/sizeof(int) -1);
+    
+    // double_quick_sort
+    double_quick_sort(array, 0, sizeof(array)/sizeof(int) -1);
 
     // print result array
     printf("result array: \n");
