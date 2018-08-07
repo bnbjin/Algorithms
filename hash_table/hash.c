@@ -60,3 +60,40 @@ void insert_hashtab_linked(int val, HASH_TABLE *ht)
 {
 	
 }
+
+
+
+int ht_oa_insert(HT_OPENADDR *ht, int k)
+{
+    int j = 0;
+
+    for (int i = 0; i < ht->size; ++i) 
+    {
+        // j = hashfn(k, i)
+        if (ht->arr[j] == NIL)
+        {
+            ht->arr[j] = k;
+            return j;
+        }
+    }
+
+    return -1;
+}
+
+
+int ht_oa_search(HT_OPENADDR *ht, int k)
+{
+    int i = 0;
+    int j = 0;
+
+    do
+    {
+        // j = hashfn(k, i)
+        if (k == ht->arr[j])
+            return j;
+
+        ++i;
+    } while (i < ht->size && ht->arr[j]);   
+
+    return -1;
+}

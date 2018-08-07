@@ -8,4 +8,10 @@ int hash_fn_div(int k, int hashtab_len);
 
 int hash_fn_mul(int k, int ht_len);
 
+// primary clustering
+int hash_fn_primclus(int k, int i, int m);
+
+// secondary clusering
+int hash_fn_secclus(int k, int i, int m);
+
 #endif // __HASH_FN_H__
