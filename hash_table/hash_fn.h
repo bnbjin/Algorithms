@@ -14,4 +14,7 @@ int hash_fn_primclus(int k, int i, int m);
 // secondary clusering
 int hash_fn_secclus(int k, int i, int m);
 
+// double hashing
+int hash_fn_doubhash(int k, int i, int m);
+
 #endif // __HASH_FN_H__

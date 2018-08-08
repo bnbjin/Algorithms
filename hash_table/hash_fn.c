@@ -31,3 +31,9 @@ int hash_fn_secclus(int k, int i, int m)
 {
     return (hash_fn_mul(k) + 2 * i + 1 * i*i) % m;
 }
+
+
+int hash_fn_doubhash(int k, int i, int m)
+{
+    return (hash_fn_mul(k) + i * hash_fn_div(k)) % m;
+}
