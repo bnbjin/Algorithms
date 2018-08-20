@@ -8,6 +8,14 @@ int hash_fn_div(int k, int hashtab_len);
 
 int hash_fn_mul(int k, int ht_len);
 
+int hash_fn_mul2(int k, int m);
+
+// universal hashing
+int hash_fn_unvsl(int k, int m, int p);
+
+// universal hashing
+int hash_fn_unvsl2(int k, int m, int p);
+
 // primary clustering
 int hash_fn_primclus(int k, int i, int m);
 
