@@ -1,7 +1,7 @@
 #ifndef __HASH_H__
 #define __HASH_H__
 
-#define NIL NULL
+#define NIL -1
 
 
 // chaining

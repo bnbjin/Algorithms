@@ -1,10 +1,6 @@
-all : clean linked_mul
+all : clean test
 
-linked_div :
-	gcc -g -c *.c 	
-	gcc *.o -lm -o test
-
-linked_mul : 
+test :
 	gcc -g -c *.c 	
 	gcc *.o -lm -o test
 

@@ -1,6 +1,14 @@
+#include "hash_fn.h"
 #include <math.h>
 #include <stdlib.h>
-#include "hash_fn.h"
+#include <string.h>
+#include <time.h>
+
+
+static int a = 0;
+static int b = 0;
+static int sg_p = 0;
+
 
 int hash_fn_div(int k, int hashtab_len)
 {
@@ -24,10 +32,9 @@ int hash_fn_mul(int k, int ht_len)
 
 
 
-// m should be a power of 2
 int hash_fn_mul2(int k, int m)
 {
-    int w = 32;
+    int w = 16;
     int r = (int)(log(m) / log(2));
     int A = (int)(pow(2.0, (double)(w - r/2)) + 1.0);
 
@@ -37,41 +44,44 @@ int hash_fn_mul2(int k, int m)
 
 int hash_fn_primclus(int k, int i, int m)
 {
-    return hash_fn_mul(k) % m;
+    return hash_fn_mul(k, m) % m;
 }
 
 int hash_fn_secclus(int k, int i, int m)
 {
-    return (hash_fn_mul(k) + 2 * i + 1 * i*i) % m;
+    return (hash_fn_mul(k, m) + 2 * i + 1 * i*i) % m;
 }
 
 
 int hash_fn_doubhash(int k, int i, int m)
 {
-    return (hash_fn_mul(k) + i * hash_fn_div(k)) % m;
+    return (hash_fn_mul(k, m) + i * hash_fn_div(k, m)) % m;
 }
 
 
-// p should be a prime, m could be any number
-// p > k > m
-// k from {0, 1, ..., p-1}
-int hash_fn_unvsl(int k, int m, int p)
+void hash_fn_unvsl_init(int p)
 {
     srand((unsigned int)time(NULL));
     a = rand() % p;
-    b = rand() % (p-2) + 1;
-
-    return ((a * k + b) % p) % m;
+    b = rand() % (p - 1) + 1;
+    sg_p = p;
 }
 
 
+int hash_fn_unvsl(int k, int m)
+{
+    return ((a * k + b) % sg_p) % m;
+}
 
-// m should be a prime
+
 int hash_fn_unvsl2(int k, int m, int r)
 {
     int tmp = 0;
-    int arrk[r+1] = { 0 };
-    int arrm[r+2] = { 0 };
+    int arrk[r+1];
+    int arrm[r+2];
+
+    memset(arrk, 0, sizeof(int) * (r+1));
+    memset(arrm, 0, sizeof(int) * (r+2));
 
     tmp = k;
     for (int i = 0; 
@@ -82,11 +92,13 @@ int hash_fn_unvsl2(int k, int m, int r)
     }
 
     srand((unsigned int)time(NULL));
+    /*
     tmp = rand() / 
     for (int i = 0; i < r + 1; ++i)
     {
         
     }
+    */
 
-    return 
+    return -1;
 }
