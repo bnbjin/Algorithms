@@ -49,7 +49,7 @@ if __name__ == '__main__':
         elapsed_time = end_time - start_time
         print "Elapsed Time: %.4f seconds" % elapsed_time
 
-        if Elapsed > 0:
+        if elapsed_time > 0:
 
             # estimate the hashes per second
             hash_power = float(long(nonce)/elapsed_time)
