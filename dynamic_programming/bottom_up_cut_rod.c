@@ -1,0 +1,13 @@
+/* pseudo-code
+
+BOTTOM-UP-CUT-ROD(p, n)
+    let r[0..n] be a new array
+    r[0] = 0
+    for j = 1 to n
+        q = -infinite
+        for i = 1 to j
+            q = max(q, p[i] + r[j-i])
+        r[j]=q
+    return r[n]
+
+*/
