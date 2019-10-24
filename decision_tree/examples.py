@@ -5,6 +5,7 @@ import unittest
 import dataset as ds
 import dtree
 
+
 class TestDecisionTree(unittest.TestCase):
 
     def test_create_tree(self):
@@ -16,6 +17,3 @@ class TestDecisionTree(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-
-        
-        

@@ -2,14 +2,14 @@
 
 import math
 
-def calc_entrophy(dataset):
+def calc_entropy(dataset):
     # 实例总数
     entry_number = len(dataset)
 
     # { 特征标签:出现个数 }
     label_count = {}
 
-    entrophy = 0.0
+    entropy = 0.0
     
     for feature_vector in dataset: 
         current_label = feature_vector[-1]
@@ -22,6 +22,6 @@ def calc_entrophy(dataset):
         probability = float(label_count[key]) / entry_number
 
         # log base 2
-        entrophy -= probability * math.log(probability, 2)
+        entropy -= probability * math.log(probability, 2)
 
-    return entrophy
+    return entropy
